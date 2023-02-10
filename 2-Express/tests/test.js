@@ -2,7 +2,7 @@
 const { it } = require('mocha')
 var pactum = require('pactum')
 describe("api test", () => {
-    it("for get request", async () => {
+    it("should list five people", async () => {
         let spec = pactum.spec();
         await spec
             .get('http://localhost:5000/api/people')
@@ -21,7 +21,7 @@ describe("api test", () => {
             .expectStatus(200)
             .withRequestTimeout(3000)
     })
-    it("should add people successfully ", async () => {
+    it("should add a person ", async () => {
         let spec = pactum.spec();
         await spec
             .post('http://localhost:5000/api/people')
@@ -30,7 +30,7 @@ describe("api test", () => {
             .withRequestTimeout(3000)
 
     })
-    it("should not add people", async () => {
+    it("should not add a person", async () => {
         let spec = pactum.spec();
         await spec
             .post('http://localhost:5000/api/people')
@@ -39,7 +39,7 @@ describe("api test", () => {
             .withRequestTimeout(3000)
 
     })
-    it("successful login", async () => {
+    it("should login", async () => {
         let spec = pactum.spec();
         await spec
             .post('http://localhost:5000/login')
@@ -48,7 +48,7 @@ describe("api test", () => {
             .withRequestTimeout(3000)
 
     })
-    it("unsuccessful login", async () => {
+    it("should not login", async () => {
         let spec = pactum.spec();
         await spec
             .post('http://localhost:5000/login')
@@ -57,7 +57,7 @@ describe("api test", () => {
             .withRequestTimeout(3000)
 
     })
-    it("should update a person successfully", async () => {
+    it("should update a person", async () => {
         let spec = pactum.spec();
         await spec
             .put(`http://localhost:5000/api/people/${1}`)
